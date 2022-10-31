@@ -1,0 +1,5 @@
+# Project exclude paths
+/.gradle/
+/build/
+/build/classes/groovy/test/
+/build/classes/kotlin/main/

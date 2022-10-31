@@ -1,0 +1,19 @@
+WEBSOCKET ws://localhost:8080/changed-subscription/1
+
+###
+
+GET http://localhost:8080/subscriptions/1
+
+###
+
+POST http://localhost:8080/subscriptions
+
+{
+  "userId": 1,
+  "subscriptions": [
+    {
+      "serviceName": "Disney +",
+      "monthlyPrice": 39.99
+    }
+  ]
+}
