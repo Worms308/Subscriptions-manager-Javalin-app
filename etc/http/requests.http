@@ -12,7 +12,7 @@ POST http://localhost:8080/subscriptions
   "userId": 1,
   "subscriptions": [
     {
-      "serviceName": "Disney +",
+      "serviceName": "Disney ++",
       "monthlyPrice": 39.99
     }
   ]

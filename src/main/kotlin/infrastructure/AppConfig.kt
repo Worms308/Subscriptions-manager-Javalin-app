@@ -1,10 +1,10 @@
 package infrastructure
 
 import domain.changesobserver.ChangesConfig
+import domain.subscription.SubscriptionConfig
 import infrastructure.event.EventBus
 import infrastructure.exceptions.ExceptionHandler
 import io.javalin.Javalin
-import domain.subscription.SubscriptionConfig
 import java.time.Clock
 
 class AppConfig {
@@ -31,6 +31,16 @@ class AppConfig {
             }
             appConfig.registerControllers(app)
             appConfig.registerExceptionHandlers(app)
+            app.after("/*") { ctx ->
+                ctx.header("Access-Control-Allow-Origin", "http://localhost:4200")
+                ctx.header("Access-Control-Request-Method", "POST, GET, OPTIONS")
+            }
+            app.options("/**") { ctx ->
+                ctx.header("Access-Control-Allow-Origin", "http://localhost:4200")
+                ctx.header("Access-Control-Request-Method", "POST, GET, OPTIONS")
+                ctx.header("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with")
+                ctx.header("Access-Control-Max-Age", "3600")
+            }
             return app
         }
     }

@@ -1,0 +1,8 @@
+<p>Dodaj nową subskrypcję</p>
+<input type="text" placeholder="Nazwa subskrypcji" #serviceName>
+<input type="number" placeholder="Cena" #price>
+<button (click)="updateSubscriptions(serviceName.value, +price.value)">Edytuj subskrypcje</button>
+
+<ul>
+  <li *ngFor="let sub of (subscriptions | async)?.subscriptions">{{sub.serviceName}}, {{sub.monthlyPrice}}</li>
+</ul>

@@ -27,7 +27,8 @@ internal class SubscriptionFacade constructor(
         return SubscriptionsChanged(
             Instant.now(clock),
             subscriptions.subscriptions.toString(),
-            subscriptions.userId
+            subscriptions.userId,
+            subscriptions.mapToResponse().subscriptions
         )
     }
 }

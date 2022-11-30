@@ -18,7 +18,7 @@ internal class ChangesFacade (
     }
 
     private fun onEvent(event: SubscriptionsChanged) {
-        sessions[event.userId]?.send(event.message)
+        sessions[event.userId]?.send(event.subscriptions)
     }
 
     fun closeUserSession(userId: String, context: WsContext) {
